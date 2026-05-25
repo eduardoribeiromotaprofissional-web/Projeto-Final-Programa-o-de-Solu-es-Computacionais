@@ -13,6 +13,7 @@ public class App {
         System.out.println("1 - Atividades Físicas");
         System.out.println("2 - Dados Biométricos");
         System.out.println("3 - Hábitos de Saúde");
+        System.out.println("4 - Relatório de Saúde");
         System.out.println("0 - Sair");
         System.out.print("\nEscolha: ");
     }
@@ -28,6 +29,7 @@ public class App {
             System.out.println("2 - Listar atividades");
             System.out.println("3 - Atualizar atividade");
             System.out.println("4 - Remover atividade");
+            System.out.println("5 - Filtrar atividades acima de duração");
             System.out.println("0 - Voltar");
             System.out.print("\nEscolha: ");
 
@@ -81,6 +83,17 @@ public class App {
 
                     break;
 
+                case 5:
+
+                    System.out.print("Mostrar atividades acima de quantos minutos? ");
+
+                    int minutos =
+                            Integer.parseInt(scanner.nextLine());
+
+                    service.filtrarAtividades(minutos);
+
+                    break;
+
                 case 0:
 
                     System.out.println("Voltando...");
@@ -114,10 +127,23 @@ public class App {
 
                 case 1:
 
-                    System.out.print("Digite o peso: ");
-                    double peso = Double.parseDouble(scanner.nextLine());
+                    System.out.print("Digite o peso (em Kg): ");
+                    double peso =
+                            Double.parseDouble(scanner.nextLine());
 
-                    service.cadastrarBiometria(peso);
+                    System.out.print("Digite a altura (ex: 1.70): ");
+                    double altura =
+                            Double.parseDouble(scanner.nextLine());
+
+                    System.out.print("Digite a idade: ");
+                    int idade =
+                            Integer.parseInt(scanner.nextLine());
+
+                    service.cadastrarBiometria(
+                            peso,
+                            altura,
+                            idade
+                    );
 
                     break;
 
@@ -132,12 +158,27 @@ public class App {
                     service.listarBiometria();
 
                     System.out.print("Digite o ID do dado: ");
-                    int idAtualizar = Integer.parseInt(scanner.nextLine());
+                    int idAtualizar =
+                            Integer.parseInt(scanner.nextLine());
 
-                    System.out.print("Novo peso: ");
-                    double novoPeso = Double.parseDouble(scanner.nextLine());
+                    System.out.print("Novo peso (em Kg): ");
+                    double novoPeso =
+                            Double.parseDouble(scanner.nextLine());
 
-                    service.atualizarBiometria(idAtualizar, novoPeso);
+                    System.out.print("Nova altura (ex: 1.70): ");
+                    double novaAltura =
+                            Double.parseDouble(scanner.nextLine());
+
+                    System.out.print("Nova idade: ");
+                    int novaIdade =
+                            Integer.parseInt(scanner.nextLine());
+
+                    service.atualizarBiometria(
+                            idAtualizar,
+                            novoPeso,
+                            novaAltura,
+                            novaIdade
+                    );
 
                     break;
 
@@ -146,7 +187,8 @@ public class App {
                     service.listarBiometria();
 
                     System.out.print("Digite o ID do dado: ");
-                    int idRemover = Integer.parseInt(scanner.nextLine());
+                    int idRemover =
+                            Integer.parseInt(scanner.nextLine());
 
                     service.removerBiometria(idRemover);
 
@@ -261,6 +303,12 @@ public class App {
                 case 3:
 
                     menuHabitos();
+                    break;
+
+                case 4:
+
+                    service.relatorioSaude();
+
                     break;
 
                 case 0:
