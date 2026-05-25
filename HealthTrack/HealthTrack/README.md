@@ -1,61 +1,56 @@
 # HealthTrack
 
-Sistema de gerenciamento de saúde desenvolvido em Java via terminal.
+Sistema de gerenciamento de saúde desenvolvido em Java via terminal com integração ao MySQL.
 
 ## Funcionalidades
 
 * Cadastro de atividades físicas
 * Cadastro de dados biométricos
 * Cadastro de hábitos de saúde
-* Atualização e remoção de informações
+* Atualização de informações
+* Remoção de registros
+* Listagem de dados cadastrados
+* Integração com banco de dados MySQL
 * Navegação por menus interativos
+* Estrutura baseada em Programação Orientada a Objetos (OOP)
 
-## Como executar o sistema
+## Tecnologias Utilizadas
 
-Compile e execute o arquivo `App.java`.
+* Java
+* MySQL
+* JDBC
+* VS Code
 
-Após iniciar o programa, será exibido o menu principal do sistema.
+## Conceitos Aplicados
 
-### Menu Principal
+* Encapsulamento
+* Herança
+* Classe abstrata
+* Separação em camadas
+* CRUD completo
+* Integração com banco de dados
 
-```
-1 - Atividades Físicas
-2 - Dados Biométricos
-3 - Hábitos de Saúde
-0 - Sair
-```
+## Estrutura do Projeto
 
-O usuário deve digitar o número correspondente à opção desejada.
+src/
+│
+├── App.java
+│
+├── database/
+│   └── Conexao.java
+│
+├── interfaces/
+│   └── Crud.java
+│
+├── model/
+│   ├── RegistroSaude.java
+│   ├── AtividadeFisica.java
+│   ├── DadoBiometrico.java
+│   └── HabitoSaude.java
+│
+└── service/
+    └── HealthService.java
 
-## Navegação dos Menus
+## Encerramento
 
-### 1 - Atividades Físicas
-
-Permite:
-
-* Registrar atividades
-* Listar atividades cadastradas
-* Atualizar atividades
-* Remover atividades
-
-### 2 - Dados Biométricos
-
-Permite:
-
-* Registrar dados biométricos
-* Consultar dados cadastrados
-* Atualizar informações
-* Remover dados
-
-### 3 - Hábitos de Saúde
-
-Permite:
-
-* Registrar hábitos
-* Listar hábitos cadastrados
-* Atualizar hábitos
-* Remover hábitos
-
-## Encerramento do sistema
-
-Para finalizar o programa, basta digitar: 0 no menu principal.
+* Para encerrar o sistema digite 0 no menu principal
